@@ -1,0 +1,24 @@
+{
+  "name": "ejn-mini-project",
+  "version": "1.0.0",
+  "description": "testing server and API requests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulgreenham/EJN-mini-project.git"
+  },
+  "author": "Paul Greenham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulgreenham/EJN-mini-project/issues"
+  },
+  "homepage": "https://github.com/paulgreenham/EJN-mini-project#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "handlebars": "^4.1.1",
+    "jquery": "^3.3.1"
+  }
+}
