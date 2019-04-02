@@ -1,5 +1,5 @@
 const express = require("express")
-const requestMod = require("request")
+const request = require("request")
 const path = require("path")
 const app = express()
 
@@ -13,15 +13,10 @@ const teamToIDs = {
     "suns": "1610612756"
 }
 
-// const filterPlayers = function(player, teamID) {
-//     if(player.teamID)
-// }
 
-
-
-app.get("/teams/:teamName", function(request, response) {
-    let teamID = teamToIDs[request.params.teamName]
-    requestMod("http://data.nba.net/10s/prod/v1/2018/players.json", function(error, data, body) {
+app.get("/teams/:teamName", function(req, res) {
+    let teamID = teamToIDs[req.params.teamName]
+    request("http://data.nba.net/10s/prod/v1/2018/players.json", function(error, data, body) {
         let dataObject = JSON.parse(data.body || "{}")
         let teamPlayers = dataObject.league.standard.filter(s => s.teamId == teamID && s.isActive)
         let roster = teamPlayers.map(t => { return {
@@ -31,7 +26,7 @@ app.get("/teams/:teamName", function(request, response) {
                 pos: t.pos
             }
         })
-        response.send(roster)
+        res.send(roster)
     })
     
 })

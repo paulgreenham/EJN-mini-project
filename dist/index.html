@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <title>EJN Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Graduate" rel="stylesheet">
+</head>
+<body>
+
+    <input type="text" placeholder="Team name">
+    <button>Get Roster</button>
+    <div id="team-container"></div>
+
+    <script id="team-template" type="text/x-handlebars-template">
+        {{#each roster}}
+        <div class="player">
+            <p class="name">{{this.firstName}} {{this.lastName}}</p>
+            <p class="number">{{this.jersey}}</p>
+            <img src="https://nba-players.herokuapp.com/players/{{this.lastName}}/{{this.firstName}}">
+            <p class="position">{{this.pos}}</p>
+        </div>
+        {{/each}}
+    </script>
+
+    <script src="./jquery/dist/jquery.js"></script>
+    <script src="./handlebars/dist/handlebars.js"></script>
+    <script src="Renderer.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
