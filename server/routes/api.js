@@ -29,18 +29,22 @@ router.get("/teams/:teamName", function(req, res) {
 })
 
 router.get("/dreamTeam", function (req, res) {
-    let team = []
-    for(let i = 0; i < Math.min(5, dreamTeam.length); i++) {
-        team.push(dreamTeam[i])
-    }
-    res.send(team)
+    res.send(dreamTeam)
 })
 
 
 router.post("/roster", function (req, res) {
     let player = req.body
-    dreamTeam.unshift(player)
-    res.send(console.log(dreamTeam))
+    if(dreamTeam.find(d => d.firstName == player.firstName && d.lastName == player.lastName)) {
+        res.end()
+    }
+    else {
+        dreamTeam.unshift(player)
+        if(dreamTeam.length > 5){
+            dreamTeam.splice(5)
+        }
+        res.end()
+    }
 })
 
 

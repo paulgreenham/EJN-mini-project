@@ -7,11 +7,13 @@ body {
     width: 95vw;
     height: 93vh;
     display: grid;
-    grid-template-columns: 5fr 1fr;
+    grid-template-columns: 4fr repeat(2, 1fr);
     grid-template-areas:
-    "i b"
-    "p p";
-    padding: 10px;
+    "i r d"
+    "dt dt dt"
+    "m m m"
+    "p p p";
+    /* padding: 10px; */
     background-color: #ECF0F1;
     font-family: 'Graduate', cursive;
 }
@@ -24,16 +26,37 @@ input {
 }
 
 button {
-    grid-area: b;
     height: 25px;
     font-family: 'Graduate', cursive;
     margin: 5px;
 }
 
-#team-container {
-    grid-area: p;
+#roster {
+    grid-area: r;
+}
+
+#dream-team {
+    grid-area: d;
+}
+
+#message {
+    grid-area: m;
+    font-size: 20px;
+}
+
+#team-container, #dreamteam-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+}
+
+#dreamteam-container {
+    grid-area: dt;
+    border-bottom: black solid 3px;
+    padding-bottom: 5px;
+}
+
+#team-container {
+    grid-area: p;
 }
 
 .player {
@@ -43,10 +66,11 @@ button {
     font-size: 18px;
     box-shadow: 3px 3px 5px;
     margin: 5px;
+    padding: 5px;
 }
 
 img {
     box-shadow: 1px 1px 3px;
     background-color: #BDC3C7;
-
+    margin: 5px;
 }

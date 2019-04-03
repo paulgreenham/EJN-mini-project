@@ -11,16 +11,19 @@
 <body>
 
     <input type="text" placeholder="Team name">
-    <button>Get Roster</button>
+    <button id="roster">Get Roster</button>
+    <button id="dream-team">Dream Team</button>
+    <div id="dreamteam-container"></div>
+    <div id="message"></div>
     <div id="team-container"></div>
 
     <script id="team-template" type="text/x-handlebars-template">
         {{#each roster}}
         <div class="player">
-            <p class="name">{{this.firstName}} {{this.lastName}}</p>
-            <p class="number">{{this.jersey}}</p>
+            <div class="name" data-name='{"firstName": "{{this.firstName}}", "lastName": "{{this.lastName}}"}'>{{this.firstName}} {{this.lastName}}</div>
+            <div class="number" data-jersey="{{this.jersey}}">{{this.jersey}}</div>
             <img src="https://nba-players.herokuapp.com/players/{{this.lastName}}/{{this.firstName}}">
-            <p class="position">{{this.pos}}</p>
+            <div class="position" data-pos="{{this.pos}}">{{this.pos}}</div>
         </div>
         {{/each}}
     </script>
