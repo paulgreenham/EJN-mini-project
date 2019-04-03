@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/paulgreenham/EJN-mini-project#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "handlebars": "^4.1.1",
     "jquery": "^3.3.1",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "router": "^1.3.3"
   }
 }
